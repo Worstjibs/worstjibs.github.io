@@ -1,0 +1,120 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const posts = [
+  {
+    slug: 'hello-world',
+    title: 'Hello World',
+    date: 'May 10, 2026',
+    readTime: '2 min read',
+    excerpt:
+      "A quick note on why I'm starting this blog — a place to think out loud about software development, things I'm experimenting with, and topics I'm currently interested in.",
+  },
+];
+---
+
+<BaseLayout title="Blog">
+  <div class="page-content">
+    <header class="blog-header">
+      <h1>Blog</h1>
+      <p>Thoughts on software engineering, .NET, and distributed systems.</p>
+    </header>
+    <ul class="post-list">
+      {posts.map(post => (
+        <li class="post-card">
+          <a href={`/blog/${post.slug}`} class="post-card-link">
+            <div class="post-meta">
+              <span>{post.date}</span>
+              <span>·</span>
+              <span>{post.readTime}</span>
+            </div>
+            <h2>{post.title}</h2>
+            <p class="post-excerpt">{post.excerpt}</p>
+            <span class="post-read-more">Read post →</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</BaseLayout>
+
+<style lang="scss">
+@use '../../styles/styles' as *;
+
+.page-content {
+  padding-top: 3rem;
+}
+
+.blog-header {
+  padding-bottom: 3rem;
+  border-bottom: 1px solid $surface;
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    margin: 0 0 0.5rem;
+    background: linear-gradient(135deg, $text 0%, $accent 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  p {
+    color: $text-muted;
+    font-size: 1.05rem;
+    margin: 0;
+  }
+}
+
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.post-card {
+  border-bottom: 1px solid $surface;
+}
+
+.post-card-link {
+  display: block;
+  padding: 2rem 0;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.15s;
+
+  &:hover {
+    opacity: 0.8;
+
+    .post-read-more { color: $accent; }
+  }
+}
+
+.post-meta {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: $text-subtle;
+  margin-bottom: 0.6rem;
+}
+
+h2 {
+  margin: 0 0 0.6rem;
+}
+
+.post-excerpt {
+  color: $text-muted;
+  line-height: 1.7;
+  margin: 0 0 1rem;
+  max-width: 640px;
+}
+
+.post-read-more {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: $text-subtle;
+  transition: color 0.15s;
+}
+</style>

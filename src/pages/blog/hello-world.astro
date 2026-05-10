@@ -1,0 +1,115 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Hello World"
+  description="An introduction to why I started this blog and what I plan to write about."
+>
+  <article class="page-content">
+
+    <header class="post-header">
+      <div class="post-meta">
+        <span>May 10, 2026</span>
+        <span>·</span>
+        <span>2 min read</span>
+      </div>
+      <h1>Hello World</h1>
+      <p class="post-lead">
+        A quick note on why I'm starting this blog and what I plan to use it for.
+      </p>
+    </header>
+
+    <div class="post-body">
+      <p>
+        I've been meaning to start writing for a while now. Not as a polished publication —
+        more as a place to think out loud. Software development moves fast, and I find that
+        writing things down is one of the best ways to actually consolidate what I'm learning.
+      </p>
+      <p>
+        So that's what this blog is going to be. A running set of notes on things I'm working
+        through, tools I'm experimenting with, patterns I've found useful, and the occasional
+        opinion on where I think things are heading. Nothing exhaustive — just honest,
+        first-hand takes from someone who spends most of their day writing .NET and thinking
+        about distributed systems.
+      </p>
+      <p>
+        Right now I'm particularly interested in how teams are integrating AI tooling into
+        their day-to-day development workflows, how .NET Aspire is shaping the way we build
+        and run cloud-native applications, and the ongoing shift toward event-driven
+        architectures in enterprise software. Those topics will likely show up here a fair
+        bit to start.
+      </p>
+      <p>
+        If any of that sounds interesting, stick around. More posts to follow.
+      </p>
+    </div>
+
+    <footer class="post-footer">
+      <a href="/blog" class="btn btn-secondary">← Back to Blog</a>
+    </footer>
+
+  </article>
+</BaseLayout>
+
+<style lang="scss">
+@use '../../styles/styles' as *;
+
+.page-content {
+  padding-top: 3rem;
+}
+
+.post-header {
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid $surface;
+  margin-bottom: 2.5rem;
+}
+
+.post-meta {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: $text-subtle;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 0 0 1rem;
+  color: $heading;
+}
+
+.post-lead {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: $text-muted;
+  margin: 0;
+  max-width: 640px;
+}
+
+.post-body {
+  h2 {
+    font-size: 1.4rem;
+    margin: 2.5rem 0 0.75rem;
+    color: $heading;
+  }
+
+  p {
+    font-family: system-ui, -apple-system, sans-serif;
+    color: $text-muted;
+    line-height: 1.8;
+    font-size: 1rem;
+    margin: 0 0 1.25rem;
+    max-width: 680px;
+  }
+}
+
+.post-footer {
+  padding-top: 3rem;
+  border-top: 1px solid $surface;
+  margin-top: 1rem;
+}
+</style>
